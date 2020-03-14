@@ -1,0 +1,45 @@
+body {
+    min-height: 100vh;
+}
+
+.bgcolor {
+
+    background-image: linear-gradient(to bottom, #071630, black);
+    height: 100%;
+    width: 100%;
+
+}
+
+.white {
+    color: white;
+}
+
+.alexsContainer {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    margin-left: 3vmin auto;
+    margin-right: 3vmin auto;
+    background-color: slateblue;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 30px;
+    height: 100%;
+    width: auto;
+    box-shadow: white 0px 0px 20px 7px;
+}
+
+.alexsContainer h1 {
+    text-align: center;
+}
+
+.centered {
+    text-align: center;
+    justify-content: center;
+}
+
+.col-md-12 .btn-warning {
+    width: 100%;
+    border-radius: 30px;
+}
