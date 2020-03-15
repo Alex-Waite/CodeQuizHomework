@@ -30,6 +30,9 @@ function startTimer() {
             $("#questionRow1").addClass("hidden")
             $("#questionRow2").addClass("hidden")
             $("#questionRow3").addClass("hidden")
+            $("#questionRow4").addClass("hidden")
+            $("#questionRow5").addClass("hidden")
+            $("#questionRow6").addClass("hidden")
             $("#startRow").addClass("hidden")
             $("#gameOverScreen").removeClass("hidden")
             $("#userSpan").text(username)
@@ -51,6 +54,7 @@ $(".right").on("click", function () {
 $(".wrong").on("click", function () {
     timeLeft = timeLeft - 10;
     wrongScore = wrongScore + 1;
+    displayTime()
 })
 
 
