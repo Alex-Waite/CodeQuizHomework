@@ -40,6 +40,7 @@ function startTimer() {
             $("#wrongScoreSpan").text(wrongScore)
 
 
+
         } else {
             displayTime();
         }
@@ -86,7 +87,7 @@ $(".q5Btn").on("click", function () {
 
 
 $(".q6Btn").on("click", function () {
-    $("#questionRow3").addClass("hidden")
+    $("#questionRow6").addClass("hidden")
     $("#gameOverScreen").removeClass("hidden")
     $("#userSpan").text(username)
     $("#scoreSpan").text(userScore)
