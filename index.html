@@ -34,10 +34,42 @@
                 <h1 class="centered">Time is ticking...</h1>
                 <h3 class="centered">What is rapper Lil Wayne's bithday?
                 </h3>
-                <button type="button" class="btn top btn-success centered" id="right">27 September 1982</button>
-                <button type="button" class="btn btn-success centered" id="wrong">8 March 1982</button>
-                <button type="button" class="btn btn-success centered" id="wrong">23 January 1989</button>
-                <button type="button" class="btn btn-success centered" id="wrong">18 December 1985</button>
+                <button type="button" class="btn top btn-success centered q1Btn right">27 September
+                    1982</button>
+                <button type="button" class="btn btn-success centered q1Btn wrong">8 March 1982</button>
+                <button type="button" class="btn btn-success centered q1Btn wrong">23 January 1989</button>
+                <button type="button" class="btn btn-success centered q1Btn wrong">18 December 1985</button>
+            </div>
+
+        </div>
+
+        <div class="row hidden" id="questionRow2">
+
+            <div class="col-md-12 white">
+                <h1 class="centered">Time is ticking...</h1>
+                <h3 class="centered">How many teeth does the Queen have?
+                </h3>
+                <button type="button" class="btn top btn-success centered q2Btn wrong">100</button>
+                <button type="button" class="btn btn-success centered q2Btn wrong">3 e^22</button>
+                <button type="button" class="btn btn-success centered q2Btn wrong">0.5</button>
+                <button type="button" class="btn btn-success centered q2Btn right">Probs like 30 or
+                    so</button>
+            </div>
+
+        </div>
+
+        <div class="row hidden" id="questionRow3">
+
+            <div class="col-md-12 white">
+                <h1 class="centered">Time is ticking...</h1>
+                <h3 class="centered">Where did the popular food item "Butter Chicken" first originate?
+                </h3>
+                <button type="button" class="btn top btn-success centered q3Btn wrong">Mexico</button>
+                <button type="button" class="btn btn-success centered q3Btn right">India</button>
+                <button type="button" class="btn btn-success centered q3Btn wrong">Indiana</button>
+                <button type="button" class="btn btn-success centered q3Btn wrong">UY Scuti, a hypergiant
+                    with a
+                    radius around 1,700 times larger than the sun</button>
             </div>
 
         </div>
@@ -63,10 +95,14 @@
         //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
         //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
 
+
+        //Variables
         var timeLeft = 60;
         var timeArea = $("#time")
         var interval;
         var timerButton = $("#startBtn")
+        var userScore = 0;
+        var userInitals = prompt("Enter your Name or initials to save your score!")
 
         //TIMER STUFF
         function displayTime() {
@@ -82,17 +118,33 @@
                 if (timeLeft <= 0) {
                     displayTime();
                     clearInterval(interval);
-                    alert("Times Up!")
+                    prompt("Times Up! Enter your initials to see your score!")
                 } else {
                     displayTime();
                 }
             }, 1000);
         }
 
+        //When questions are answered the next questions will come up
+
         $("#startBtn").on("click", startTimer)
         $("#startBtn").on("click", function () {
             $("#startRow").addClass("hidden")
             $("#questionRow1").removeClass("hidden")
+        })
+        $(".q1Btn").on("click", function () {
+            $("#questionRow1").addClass("hidden")
+            $("#questionRow2").removeClass("hidden")
+        })
+        $(".q2Btn").on("click", function () {
+            $("#questionRow2").addClass("hidden")
+            $("#questionRow3").removeClass("hidden")
+        })
+        $(".right").on("click", function () {
+            userScore = userScore + 1
+        })
+        $(".wrong").on("click", function () {
+            timeLeft = timeLeft - 10
         })
 
         //SWAPPING FROM START PAGE TO QUESTIONS PAGE
