@@ -66,3 +66,21 @@ body {
 .hidden {
     display: none;
 }
+
+.userArea {
+    color: magenta;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.scoreArea {
+    color: lime;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.wrongScoreArea {
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+}

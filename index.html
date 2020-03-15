@@ -8,6 +8,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 </head>
 
 <body class="bgcolor">
@@ -18,7 +20,7 @@
             <div class="col-md-12 white">
                 <h1 class="centered">Welcome to Alex's Quiz</h1>
                 <h3 class="centered">Please click the button below to begin, once the button is pressed you will be
-                    tasked with answering 4 questions within the timeframe of 1 minute, if you incorrectly answer a
+                    tasked with answering 6 questions within the timeframe of 60 seconds, if you incorrectly answer a
                     question 10 seconds will be subtracted from your total time.
                     <br>
                     Good Luck!
@@ -74,6 +76,68 @@
 
         </div>
 
+        <div class="row hidden" id="questionRow4">
+
+            <div class="col-md-12 white">
+                <h1 class="centered">Time is ticking...</h1>
+                <h3 class="centered">In the video game Runescape, Where does the player first begin?
+                </h3>
+                <button type="button" class="btn top btn-success centered q4Btn wrong">The Wilderness</button>
+                <button type="button" class="btn btn-success centered q4Btn right">Tutorial Island</button>
+                <button type="button" class="btn btn-success centered q4Btn wrong">Lumbridge</button>
+                <button type="button" class="btn btn-success centered q4Btn wrong">Port Sarim</button>
+            </div>
+
+        </div>
+
+        <div class="row hidden" id="questionRow5">
+
+            <div class="col-md-12 white">
+                <h1 class="centered">Time is ticking...</h1>
+                <h3 class="centered">What is the capitol of Vietnam
+                </h3>
+                <button type="button" class="btn top btn-success centered q5Btn wrong">Shanghai</button>
+                <button type="button" class="btn btn-success centered q5Btn wrong">Ho Chi Minh City</button>
+                <button type="button" class="btn btn-success centered q5Btn right">Hanoi</button>
+                <button type="button" class="btn btn-success centered q5Btn wrong">Qui Nhon</button>
+            </div>
+
+        </div>
+
+        <div class="row hidden" id="questionRow6">
+
+            <div class="col-md-12 white">
+                <h1 class="centered">Time is ticking...</h1>
+                <h3 class="centered">Which of the following is false
+                </h3>
+                <button type="button" class="btn top btn-success centered q6Btn wrong">The guillotine was last formally
+                    used in France on the same year Star Wars came out</button>
+                <button type="button" class="btn btn-success centered q6Btn wrong">The pyramids were roughly as old to
+                    the Ancient Romans as the Ancient Romans are old to us</button>
+                <button type="button" class="btn btn-success centered q6Btn wrong">Anne Frank and Martin Luther King
+                    were both born in the same year</button>
+                <button type="button" class="btn btn-success centered q6Btn right">Stonehenge was severely vandalized in
+                    1903</button>
+            </div>
+
+        </div>
+
+        <div class="row hidden" id="gameOverScreen">
+            <div class="col-md-12 white">
+                <h1 class="centered">QUIZ COMPLETE!</h1>
+                <h4 class="centered">Below is your score and your username</h4>
+            </div>
+            <div class="col-md-6 centered white">
+                <h6>Username: </h6><span class="userArea" id="userSpan"></span>
+            </div>
+            <div class="col-md-3 centered white">
+                <h6>Correct: </h6><span class="scoreArea" id="scoreSpan"></span>
+            </div>
+            <div class="col-md-3 centered white">
+                <h6>Wrong/Missed: </h6><span class="wrongScoreArea" id="wrongScoreSpan"></span>
+            </div>
+        </div>
+
         <div class="row" id="timerRow">
             <div class="col-md-3"></div>
             <div class="col-md-6 timerBox white centered">
@@ -84,71 +148,7 @@
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-
-    <script>
-        //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
-        //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
-        //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
-        //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
-
-
-        //Variables
-        var timeLeft = 60;
-        var timeArea = $("#time")
-        var interval;
-        var timerButton = $("#startBtn")
-        var userScore = 0;
-        var userInitals = prompt("Enter your Name or initials to save your score!")
-
-        //TIMER STUFF
-        function displayTime() {
-            $("#time").text(timeLeft)
-        }
-
-        function startTimer() {
-
-            interval = setInterval(function () {
-                timeLeft--;
-                console.log(timeLeft);
-
-                if (timeLeft <= 0) {
-                    displayTime();
-                    clearInterval(interval);
-                    prompt("Times Up! Enter your initials to see your score!")
-                } else {
-                    displayTime();
-                }
-            }, 1000);
-        }
-
-        //When questions are answered the next questions will come up
-
-        $("#startBtn").on("click", startTimer)
-        $("#startBtn").on("click", function () {
-            $("#startRow").addClass("hidden")
-            $("#questionRow1").removeClass("hidden")
-        })
-        $(".q1Btn").on("click", function () {
-            $("#questionRow1").addClass("hidden")
-            $("#questionRow2").removeClass("hidden")
-        })
-        $(".q2Btn").on("click", function () {
-            $("#questionRow2").addClass("hidden")
-            $("#questionRow3").removeClass("hidden")
-        })
-        $(".right").on("click", function () {
-            userScore = userScore + 1
-        })
-        $(".wrong").on("click", function () {
-            timeLeft = timeLeft - 10
-        })
-
-        //SWAPPING FROM START PAGE TO QUESTIONS PAGE
-    </script>
-
-
+    <script src="script.js"></script>
 </body>
 
 </html>
