@@ -11,8 +11,47 @@
 </head>
 
 <body class="bgcolor">
+    <!--Beginning of Content-->
+    <div class="container alexsContainer">
+        <div class="row" id="startRow">
 
-    <!--External Links-->
+            <div class="col-md-12 white">
+                <h1 class="centered">Welcome to Alex's Quiz</h1>
+                <h3 class="centered">Please click the button below to begin, once the button is pressed you will be
+                    tasked with answering 4 questions within the timeframe of 1 minute, if you incorrectly answer a
+                    question 10 seconds will be subtracted from your total time.
+                    <br>
+                    Good Luck!
+                </h3>
+                <button type="button" class="btn btn-warning centered" id="startBtn">Start the quiz!</button>
+
+            </div>
+        </div>
+
+        <div class="row hidden" id="questionRow1">
+
+            <div class="col-md-12 white">
+                <h1 class="centered">Time is ticking...</h1>
+                <h3 class="centered">What is rapper Lil Wayne's bithday?
+                </h3>
+                <button type="button" class="btn top btn-success centered" id="right">27 September 1982</button>
+                <button type="button" class="btn btn-success centered" id="wrong">8 March 1982</button>
+                <button type="button" class="btn btn-success centered" id="wrong">23 January 1989</button>
+                <button type="button" class="btn btn-success centered" id="wrong">18 December 1985</button>
+            </div>
+
+        </div>
+
+        <div class="row" id="timerRow">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 timerBox white centered">
+                <h1>Seconds left: </h1><Span id="time">60</Span>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+    </div>
+
     <script src="http://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous">
     </script>
@@ -29,6 +68,7 @@
         var interval;
         var timerButton = $("#startBtn")
 
+        //TIMER STUFF
         function displayTime() {
             $("#time").text(timeLeft)
         }
@@ -49,35 +89,14 @@
             }, 1000);
         }
 
-        $("#startBtn").on("click", startTimer())
+        $("#startBtn").on("click", startTimer)
+        $("#startBtn").on("click", function () {
+            $("#startRow").addClass("hidden")
+            $("#questionRow1").removeClass("hidden")
+        })
+
+        //SWAPPING FROM START PAGE TO QUESTIONS PAGE
     </script>
-
-    <!--Beginning of Content-->
-    <div class="container alexsContainer">
-        <div class="row">
-
-            <div class="col-md-12 white">
-                <h1 class="centered">Welcome to Alex's Quiz</h1>
-                <h3 class="centered">Please click the button below to begin, once the button is pressed you will be
-                    tasked with answering 4 questions within the timeframe of 1 minute, if you incorrectly answer a
-                    question 10 seconds will be subtracted from your total time.
-                    <br>
-                    Good Luck!
-                </h3>
-                <button type="button" class="btn btn-warning centered" id="startBtn">Start the quiz!</button>
-
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 timerBox white centered">
-                <h1>Seconds left: </h1><Span id="time">60</Span>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-
-    </div>
 
 
 </body>
