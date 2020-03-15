@@ -18,18 +18,63 @@
     </script>
     <script src="script.js"></script>
 
+    <script>
+        //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
+        //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
+        //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
+        //COPY PASTE CODE FROM HERE TO .JS WHEN DONE!!!!
+
+        var timeLeft = 60;
+        var timeArea = $("#time")
+        var interval;
+        var timerButton = $("#startBtn")
+
+        function displayTime() {
+            $("#time").text(timeLeft)
+        }
+
+        function startTimer() {
+
+            interval = setInterval(function () {
+                timeLeft--;
+                console.log(timeLeft);
+
+                if (timeLeft <= 0) {
+                    displayTime();
+                    clearInterval(interval);
+                    alert("Times Up!")
+                } else {
+                    displayTime();
+                }
+            }, 1000);
+        }
+
+        $("#startBtn").on("click", startTimer())
+    </script>
+
     <!--Beginning of Content-->
     <div class="container alexsContainer">
         <div class="row">
 
             <div class="col-md-12 white">
                 <h1 class="centered">Welcome to Alex's Quiz</h1>
-                <h3 class="centered">Welcome to my quiz, you have 3hours to complete 3 questions please click the button
-                    below to begin
+                <h3 class="centered">Please click the button below to begin, once the button is pressed you will be
+                    tasked with answering 4 questions within the timeframe of 1 minute, if you incorrectly answer a
+                    question 10 seconds will be subtracted from your total time.
+                    <br>
+                    Good Luck!
                 </h3>
-                <button type="button" class="btn btn-warning centered">Start the quiz!</button>
+                <button type="button" class="btn btn-warning centered" id="startBtn">Start the quiz!</button>
 
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 timerBox white centered">
+                <h1>Seconds left: </h1><Span id="time">60</Span>
+            </div>
+            <div class="col-md-3"></div>
         </div>
 
     </div>

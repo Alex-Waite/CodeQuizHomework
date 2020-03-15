@@ -1,5 +1,5 @@
 body {
-    min-height: 100vh;
+    min-height: 75vh;
 }
 
 .bgcolor {
@@ -15,8 +15,7 @@ body {
 }
 
 .alexsContainer {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 25vmin;
     margin-left: 3vmin auto;
     margin-right: 3vmin auto;
     background-color: slateblue;
@@ -25,7 +24,7 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
     border-radius: 30px;
-    height: 100%;
+    height: auto;
     width: auto;
     box-shadow: white 0px 0px 20px 7px;
 }
@@ -40,6 +39,30 @@ body {
 }
 
 .col-md-12 .btn-warning {
+    padding: 1rem;
+    margin-top: 4rem;
     width: 100%;
     border-radius: 30px;
+    font-size: 20px;
+    margin-bottom: 4rem;
+}
+
+#time {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.col-md-12 .btn-success {
+    padding: 1rem;
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 1rem;
+}
+
+.col-md-12 .top {
+    margin-top: 2rem;
+}
+
+.hidden {
+    display: none;
 }
