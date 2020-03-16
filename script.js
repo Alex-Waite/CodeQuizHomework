@@ -26,6 +26,10 @@ function startTimer() {
             displayTime();
             clearInterval(interval);
             alert("Times Up!")
+            username = prompt("Set a Username to see your score!")
+            while (username.length < 2 || username.length > 20) {
+                username = prompt("Please pick a username between 2-20 characters")
+            }
             $("#questionRow1").addClass("hidden")
             $("#questionRow2").addClass("hidden")
             $("#questionRow3").addClass("hidden")
@@ -38,9 +42,6 @@ function startTimer() {
             $("#scoreSpan").text(userScore)
             $("#wrongScoreSpan").text(wrongScore)
             localStorage.setItem("lastScore", userScore)
-
-
-
         } else {
             displayTime();
         }
@@ -55,6 +56,10 @@ $(".right").on("click", function () {
 $(".wrong").on("click", function () {
     timeLeft = timeLeft - 10;
     wrongScore = wrongScore + 1;
+    if (timeLeft < 0) {
+        timeLeft = 0
+        displayTime()
+    }
     displayTime()
 })
 
@@ -86,6 +91,10 @@ $(".q5Btn").on("click", function () {
 })
 
 $(".q6Btn").on("click", function () {
+    if (timeLeft < 0) {
+        timeLeft = 0
+        displayTime()
+    }
     username = prompt("Set a Username to see your score!")
     while (username.length < 2 || username.length > 20) {
         username = prompt("Please pick a username between 2-20 characters")
