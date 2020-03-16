@@ -5,16 +5,15 @@ var interval;
 var timerButton = $("#startBtn")
 var userScore = 0;
 var wrongScore = 0;
-var username = prompt("Please enter a username!")
+
+
 
 //TIMER STUFF
 function displayTime() {
     $("#time").text(timeLeft)
 }
 
-while (username.length < 2 || username.length > 20) {
-    username = prompt("Username must be between 2-20 characters")
-}
+
 
 function startTimer() {
 
@@ -38,6 +37,7 @@ function startTimer() {
             $("#userSpan").text(username)
             $("#scoreSpan").text(userScore)
             $("#wrongScoreSpan").text(wrongScore)
+            localStorage.setItem("lastScore", userScore)
 
 
 
@@ -85,12 +85,16 @@ $(".q5Btn").on("click", function () {
     $("#questionRow6").removeClass("hidden")
 })
 
-
 $(".q6Btn").on("click", function () {
+    username = prompt("Set a Username to see your score!")
+    while (username.length < 2 || username.length > 20) {
+        username = prompt("Please pick a username between 2-20 characters")
+    }
     $("#questionRow6").addClass("hidden")
     $("#gameOverScreen").removeClass("hidden")
     $("#userSpan").text(username)
     $("#scoreSpan").text(userScore)
     $("#wrongScoreSpan").text(wrongScore)
+    localStorage.setItem("lastScore", userScore)
     clearInterval(interval)
 })
